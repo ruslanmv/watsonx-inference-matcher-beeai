@@ -65,7 +65,7 @@ It is designed to **generalize agent generation** across diverse infrastructure 
 ### ✅ 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ruslanmv/inference-matcher-beeai.git
+git clone https://github.com/ruslanmv/watsonx-inference-matcher-beeai.git
 cd inference-matcher-beeai
 ```
 
