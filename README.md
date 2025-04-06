@@ -1,9 +1,7 @@
 
 # 🧠 Iterative Inference Matcher with BeeAI Framework
 
-> Generalized Agent Generation through Multi-Round Inference and Evaluation using LLMs and BeeAI Workflows.
-
----
+Generalized Agent Generation through Multi-Round Inference and Evaluation using LLMs and BeeAI Workflows.
 
 ## 📌 Project Overview
 
@@ -16,7 +14,7 @@ This project implements a robust **Iterative Inference Matcher** using the **Bee
 
 It is designed to **generalize agent generation** across diverse infrastructure templates and supports automated testing, correction, and optimization of code via AI feedback loops.
 
----
+
 
 ## ⚙️ Features
 
@@ -60,14 +58,14 @@ It is designed to **generalize agent generation** across diverse infrastructure 
     └── documentation.md                               # Architecture & design report
 ```
 
----
+
 
 ## 🧪 Installation & Setup Guide
 
 ### ✅ 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/inference-matcher-beeai.git
+git clone https://github.com/ruslanmv/inference-matcher-beeai.git
 cd inference-matcher-beeai
 ```
 
@@ -96,7 +94,7 @@ API_KEY=your_watsonx_api_key
 PROJECT_ID=your_project_id
 ```
 
----
+
 
 ## 🚀 Running the Project
 
@@ -112,7 +110,7 @@ Edit the `InferenceMatcherState` to customize:
 - `search_parameters` → List of parameters to iterate
 - `max_iterations` → Loop limit
 
----
+
 
 ### 🔁 WatsonX Auto Debug Assistant
 
@@ -124,7 +122,7 @@ streamlit run src/debugger/debugger_app.py
 
 Paste buggy code → Auto suggestions → Logs corrections
 
----
+
 
 ### 🧙 Wizard UI for Agent Creation
 
@@ -139,7 +137,7 @@ Wizard will:
 - Generate agent configs via BeeAI
 - Return the best-matched inference
 
----
+
 
 ## 🧪 Run Tests
 
@@ -152,7 +150,7 @@ Validates:
 - Score comparisons
 - Error recovery paths
 
----
+
 
 ## 📌 Sample: `InferenceMatcherState`
 
@@ -174,7 +172,7 @@ async def run():
 asyncio.run(run())
 ```
 
----
+
 
 ## 📚 Documentation
 
@@ -190,7 +188,7 @@ Covers:
 - Evaluation logic
 - Debug strategy
 
----
+
 
 ## 🎯 Advanced Configuration
 
@@ -220,7 +218,7 @@ flowchart TD
     I --> A
 ```
 
----
+
 
 ## 📌 Summary of Commands
 
@@ -259,5 +257,3 @@ All contributions are welcome!
 ## 📜 License
 
 Licensed under the [MIT License](LICENSE)
-
----
