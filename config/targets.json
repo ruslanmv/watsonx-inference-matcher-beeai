@@ -1,0 +1,21 @@
+{
+    "target_description": "The generated inference should represent a valid configuration for a secure and high-performance web server.",
+    "criteria": {
+      "max_latency": "50ms",
+      "throughput": "1000 requests/second",
+      "security_protocols": "TLS",
+      "api_support": "REST",
+      "scalability": "enabled"
+    },
+    "expected_fields": [
+      "handler_class",
+      "middlewares",
+      "rate_limit",
+      "authentication_scheme"
+    ],
+    "evaluation": {
+      "similarity_threshold": 0.75,
+      "strict_criteria": true
+    }
+  }
+  

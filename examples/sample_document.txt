@@ -1,0 +1,36 @@
+### Sample Agent Request Document
+
+This document outlines the requirements for generating a configuration agent.
+It describes the purpose, constraints, and necessary parameters that must be handled
+by the generated agent logic.
+
+---
+
+**Title:** Secure Web Server Configuration Agent
+
+**Purpose:**
+The goal is to create an intelligent agent capable of generating server configurations
+that prioritize security, high throughput, and low latency.
+
+**Functional Requirements:**
+- The configuration must support TLS-based security protocols
+- Ensure latency is capped at 50 milliseconds under normal load
+- Handle up to 1000 HTTP REST API requests per second
+- Support horizontal scalability
+- Include authentication and rate-limiting
+
+**Expected Output Format:**
+- Python class or config dict with keys:
+  - `handler_class`
+  - `middlewares`
+  - `rate_limit`
+  - `authentication_scheme`
+
+**User Parameters:**
+- `parameter1`: TLS enabled (yes/no)
+- `parameter2`: Version of the server core (e.g., v1, v2)
+
+---
+
+This document will be consumed by the BeeAI inference system
+to guide the generation of customized configuration agents.
