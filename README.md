@@ -1,5 +1,5 @@
 
-# 🧠 Iterative Inference Matcher with BeeAI Framework
+# 🧠 Inference Matcher with BeeAI Framework
 
 Generalized Agent Generation through Multi-Round Inference and Evaluation using LLMs and BeeAI Workflows.
 
@@ -72,10 +72,12 @@ cd inference-matcher-beeai
 ### ✅ 2. Create and Activate Virtual Environment
 
 ```bash
-python -m venv venv
-source venv/bin/activate    # macOS/Linux
+python -m venv .venv
+source .venv/bin/activate    # macOS/Linux
 venv\Scripts\activate       # Windows
 ```
+
+For more details visit this reference [here](https://github.com/ruslanmv/Setup-Your-Workspace-Guide)
 
 ### ✅ 3. Install Requirements
 
