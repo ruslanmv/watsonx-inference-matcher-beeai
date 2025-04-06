@@ -1,11 +1,11 @@
 
-# 🧠 Inference Matcher with BeeAI Framework
+# Watsonx Inference Matcher with BeeAI Framework
 
 Generalized Agent Generation through Multi-Round Inference and Evaluation using LLMs and BeeAI Workflows.
 
 ## 📌 Project Overview
 
-This project implements a robust **Iterative Inference Matcher** using the **BeeAI framework**, enhanced with:
+This project implements a robust ** WatsonX Iterative Inference Matcher** using the **BeeAI framework**, enhanced with:
 
 - Multi-step agent generation through iterative LLM inference
 - Automatic evaluation and comparison logic
