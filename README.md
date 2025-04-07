@@ -210,11 +210,11 @@ flowchart TD
     A[🧑 User Wizard UI] --> B[🐝 BeeAI Workflow Engine]
     B --> C[🔄 Generate Inference]
     C --> D[📊 Evaluate Inference]
-    D --> E{🎯 Error?}
+    D --> E[🎯 Error?]
     E -- Yes --> F[🛠 WatsonX Debug Fix]
     F --> C
     E -- No --> G[✅ Compare + Store Best]
-    G --> H{✅ Finished?}
+    G --> H[✅ Finished?]
     H -- No --> C
     H -- Yes --> I[🤖 Return Best Agent]
     I --> A
