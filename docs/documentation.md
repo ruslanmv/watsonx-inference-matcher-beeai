@@ -12,16 +12,16 @@ The **Iterative Inference Matcher** is an AI-powered workflow system that automa
 
 ```mermaid
 graph TD
-  A[🧑 User Input (Wizard UI)] --> B[📝 Document Template + Search Parameters]
-  B --> C[🔄 Inference Matcher Workflow]
-  C --> D1[🧩 Prompt Template (Mustache)]
-  C --> D2[🤖 ChatModel LLM (e.g. WatsonX)]
-  C --> D3[📊 Evaluation Logic (Custom Python)]
-  C --> D4[🛠 Auto Error Debugger (WatsonX)]
-  D3 --> E{🎯 Is Match Best?}
-  E -->|Yes| F[✅ Store Best Inference]
-  E -->|No| G[🔁 Next Iteration]
-  F --> H[🖥 Output Result via UI]
+    A[🧑 User Input Wizard UI] --> B[📝 Document Template + Search Parameters]
+    B --> C[🔄 Inference Matcher Workflow]
+    C --> D1[🧩 Prompt Template Mustache]
+    C --> D2[🤖 ChatModel LLM e.g. WatsonX]
+    C --> D3[📊 Evaluation Logic Custom Python]
+    C --> D4[🛠 Auto Error Debugger WatsonX]
+    D3 --> E[🎯 Is Match Best?]
+    E -->|Yes| F[✅ Store Best Inference]
+    E -->|No| G[🔁 Next Iteration]
+    F --> H[🖥 Output Result via UI]
 ```
 
 ---
