@@ -3,7 +3,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+# C extensions
+*copy.py
 # C extensions
 *.so
 
@@ -81,3 +82,4 @@ Desktop.ini
 output/
 inference_results/
 generated_agents/
+/trash

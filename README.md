@@ -1,5 +1,4 @@
-
-# Watsonx Inference Matcher with BeeAI Framework
+# 🤖 WatsonX Inference Matcher with BeeAI Framework
 
 Generalized Agent Generation through Multi-Round Inference and Evaluation using LLMs and BeeAI Workflows.
 
@@ -7,14 +6,12 @@ Generalized Agent Generation through Multi-Round Inference and Evaluation using 
 
 This project implements a robust **WatsonX Iterative Inference Matcher** using the **BeeAI framework**, enhanced with:
 
-- Multi-step agent generation through iterative LLM inference
+- Multi-step agent generation via iterative LLM inference
 - Automatic evaluation and comparison logic
 - Error recovery and auto-retry using WatsonX AI Debugger
-- Streamlit-based frontend wizard for guided agent creation
+- A Streamlit-based frontend wizard for guided agent creation
 
 It is designed to **generalize agent generation** across diverse infrastructure templates and supports automated testing, correction, and optimization of code via AI feedback loops.
-
-
 
 ## ⚙️ Features
 
@@ -22,10 +19,8 @@ It is designed to **generalize agent generation** across diverse infrastructure 
 ✅ Prompt Templates for flexible prompt engineering  
 ✅ Target-based evaluation scoring  
 ✅ Auto-error fixing and retry using WatsonX  
-✅ Streamlit wizard UI to collect agent specs from users  
+✅ Streamlit wizard UI to collect agent specifications  
 ✅ Full modular Python backend with extensibility  
-
----
 
 ## 📁 Project Structure
 
@@ -36,7 +31,7 @@ It is designed to **generalize agent generation** across diverse infrastructure 
 │   │   └── inference_matcher_workflow.py      # BeeAI workflow engine
 │   ├── templates/
 │   │   ├── inference_template.py              # Prompt template
-│   │   └── agent_generation_template.py       # Specialized for agent configs
+│   │   └── agent_generation_template.py       # Specialized for agent configurations
 │   ├── evaluation/
 │   │   └── evaluation_utils.py                # Custom scoring logic
 │   ├── config/
@@ -55,10 +50,8 @@ It is designed to **generalize agent generation** across diverse infrastructure 
 ├── requirements.txt
 ├── README.md
 └── docs/
-    └── documentation.md                               # Architecture & design report
+    └── documentation.md                       # Architecture & design report
 ```
-
-
 
 ## 🧪 Installation & Setup Guide
 
@@ -66,7 +59,7 @@ It is designed to **generalize agent generation** across diverse infrastructure 
 
 ```bash
 git clone https://github.com/ruslanmv/watsonx-inference-matcher-beeai.git
-cd inference-matcher-beeai
+cd watsonx-inference-matcher-beeai
 ```
 
 ### ✅ 2. Create and Activate Virtual Environment
@@ -74,10 +67,8 @@ cd inference-matcher-beeai
 ```bash
 python -m venv .venv
 source .venv/bin/activate    # macOS/Linux
-venv\Scripts\activate       # Windows
+.venv\Scripts\activate       # Windows
 ```
-
-For more details visit this reference [here](https://github.com/ruslanmv/Setup-Your-Workspace-Guide)
 
 ### ✅ 3. Install Requirements
 
@@ -85,81 +76,127 @@ For more details visit this reference [here](https://github.com/ruslanmv/Setup-Y
 pip install -r requirements.txt
 ```
 
-Make sure `beeai-framework`, `streamlit`, `pydantic`, `python-dotenv`, and `ibm-watson-machine-learning` are included.
+Ensure these core dependencies are installed:
+- `beeai-framework`
+- `streamlit`
+- `pydantic`
+- `ibm-watson-machine-learning`
+- `ibm_watsonx_ai`
+- `python-dotenv`
 
-### ✅ 4. Configure WatsonX
+---
 
-Create a `.env` file in root:
+## 🔧 Model Setup
 
-```
-API_KEY=your_watsonx_api_key
+### WatsonX AI (IBM Cloud)
+
+#### 1. Configure `.env`
+
+```env
+API_KEY=your_ibm_api_key
 PROJECT_ID=your_project_id
+URL=https://us-south.ml.cloud.ibm.com
 ```
 
+#### 2. Client Example
 
+```python
+from ibm_watsonx_ai import APIClient, Credentials
+
+credentials = Credentials(api_key="your_ibm_api_key", url="https://us-south.ml.cloud.ibm.com")
+client = APIClient(credentials, project_id="your_project_id")
+```
+
+---
+
+### Ollama
+
+#### 1. Installation
+
+- **macOS/Windows:**  
+  Download and install the Ollama application from [ollama.com](https://ollama.com/download).
+
+- **Linux:**  
+  ```bash
+  curl -fsSL https://ollama.com/install.sh | sh
+  ```
+
+- **Docker:**  
+  ```bash
+  docker pull ollama/ollama
+  ```
+
+#### 2. Running a Model
+
+To run a model (e.g., Llama 3.2), execute:
+
+```bash
+ollama run llama3.2
+```
+
+#### 3. (Optional) Ollama Python Client
+
+If you plan to integrate Ollama within your Python code:
+
+```bash
+pip install ollama-python
+```
+
+*For further details on both WatsonX AI and Ollama setup, please refer to the full README.md.*
+
+---
 
 ## 🚀 Running the Project
 
-### 🌀 Run Inference Matcher (Backend)
+### 🔁 Inference Matcher
 
 ```bash
 python -m src.workflows.inference_matcher_workflow
 ```
 
-Edit the `InferenceMatcherState` to customize:
-- `document_template` → Text prompt
-- `target_output` → Scoring goals from `config/targets.json`
-- `search_parameters` → List of parameters to iterate
-- `max_iterations` → Loop limit
-
-
-
-### 🔁 WatsonX Auto Debug Assistant
-
-Run via Streamlit:
-
-```bash
-streamlit run src/debugger/debugger_app.py
-```
-
-Paste buggy code → Auto suggestions → Logs corrections
-
-
-
-### 🧙 Wizard UI for Agent Creation
-
-Launch wizard with:
+### 🧙 Wizard UI
 
 ```bash
 streamlit run src/frontend/wizard_app.py
 ```
 
-Wizard will:
-- Ask questions about the system
-- Generate agent configs via BeeAI
-- Return the best-matched inference
+- Paste document template  
+- Select parameters  
+- Paste target config  
+- Click `Generate Agent`  
+- 🎉 View best inference & score
 
+### 🐞 Debugger (Auto Error Recovery)
 
+```bash
+streamlit run src/debugger/debugger_app.py
+```
 
-## 🧪 Run Tests
+Paste buggy Python code, and the WatsonX AI Debug Assistant will:
+- Detect issues
+- Suggest fixes
+- Retry with corrected code
+
+---
+
+## 🧪 Testing
 
 ```bash
 pytest src/tests/
 ```
 
-Validates:
-- Inference loop
-- Score comparisons
-- Error recovery paths
+Covers:
+- Workflow inference cycle
+- Agent evaluation logic
+- Code fix & retry logic
 
+---
 
-
-## 📌 Sample: `InferenceMatcherState`
+## 🧠 Sample Runner
 
 ```python
-import json
-import asyncio
 from src.workflows.inference_matcher_workflow import inference_workflow, InferenceMatcherState
+import json, asyncio
 
 async def run():
     state = InferenceMatcherState(
@@ -169,70 +206,64 @@ async def run():
         max_iterations=3
     )
     result = await inference_workflow.run(state)
-    print("Best inference:", result.state.best_inference)
+    print("Best Inference:\n", result.state.best_inference)
 
 asyncio.run(run())
 ```
 
-
-
-## 📚 Documentation
-
-See technical breakdown in:
-
-```
-docs/PAPER.md
-```
-
-Covers:
-- Prompt templates
-- BeeAI workflow architecture
-- Evaluation logic
-- Debug strategy
-
-
+---
 
 ## 🎯 Advanced Configuration
 
-| Field               | Description                                  |
-|--------------------|----------------------------------------------|
-| `max_iterations`   | Number of inference attempts allowed         |
-| `search_parameters`| Prompt variations or tuning inputs           |
-| `target_output`    | Goal structure (metrics, fields)             |
-| `output_format`    | Optional output mode: Python, YAML, JSON     |
+| Parameter           | Description                                        |
+|---------------------|----------------------------------------------------|
+| `max_iterations`    | Max retry attempts for inference search            |
+| `search_parameters` | List of variations used in prompt templates        |
+| `target_output`     | Objective for best match, used in evaluation       |
+| `output_format`     | Optionally enforce response format (e.g., JSON)    |
 
 ---
 
-## 🎨 Architecture Diagram
+## 📚 Documentation
+
+See `docs/documentation.md` for:
+- Architecture & Mermaid diagram
+- Prompt generation logic
+- Scoring metrics (similarity, relevance)
+- Agent generation lifecycle
+
+---
+
+## 🧰 Architecture
 
 ```mermaid
 flowchart TD
-    A[User Wizard UI] --> B[BeeAI Workflow Engine]
+    A[Wizard UI] --> B[BeeAI Workflow Engine]
     B --> C[Generate Inference]
     C --> D[Evaluate Inference]
-    D --> E{Error?}
-    E -- Yes --> F[WatsonX Debug Fix]
+    D --> E{Has Errors?}
+    E -- Yes --> F[WatsonX Fix]
     F --> C
-    E -- No --> G[Compare + Store Best]
-    G --> H{Finished?}
+    E -- No --> G[Compare & Store Best]
+    G --> H{End?}
     H -- No --> C
     H -- Yes --> I[Return Best Agent]
     I --> A
 ```
 
+---
 
+## ✅ Commands Summary
 
-## 📌 Summary of Commands
-
-| Task                         | Command                                      |
-|------------------------------|----------------------------------------------|
-| Clone repo                   | `git clone`                                  |
-| Setup venv                   | `python -m venv venv`                        |
-| Install deps                 | `pip install -r requirements.txt`           |
-| Launch workflow              | `python -m src.workflows.inference_matcher_workflow` |
-| Launch Streamlit debugger    | `streamlit run src/debugger/debugger_app.py` |
-| Launch Streamlit wizard      | `streamlit run src/frontend/wizard_app.py`   |
-| Run tests                    | `pytest src/tests/`                          |
+| Task                       | Command                                              |
+|----------------------------|------------------------------------------------------|
+| Clone repo                 | `git clone`                                          |
+| Create virtual env         | `python -m venv .venv && source .venv/bin/activate`  |
+| Install requirements       | `pip install -r requirements.txt`                   |
+| Launch backend             | `python -m src.workflows.inference_matcher_workflow` |
+| Start wizard UI            | `streamlit run src/frontend/wizard_app.py`           |
+| Launch debugger assistant  | `streamlit run src/debugger/debugger_app.py`         |
+| Run test suite             | `pytest src/tests/`                                  |
 
 ---
 
@@ -247,14 +278,12 @@ flowchart TD
 
 ## 🤝 Contributing
 
-All contributions are welcome!
+We welcome:
+- 🔧 Feature improvements
+- 🐞 Bug fixes
+- 📚 Documentation & testing
 
-- 💡 Propose enhancements
-- 🧪 Add test cases
-- 📝 Improve documentation
-- 🐛 Fix bugs and open issues
-
----
+Fork the repo, branch, and open a PR. 💬
 
 ## 📜 License
 

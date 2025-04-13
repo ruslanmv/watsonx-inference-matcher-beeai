@@ -1,32 +1,6 @@
-# Core framework
-beeai-framework>=0.1.3
-
-# Data models
-pydantic>=2.0.0
-
-# Async I/O
-aiohttp>=3.8.0
-
-# LLM APIs & Streaming
-openai>=1.0.0
-ibm-watson>=6.0.0
-ibm-cloud-sdk-core>=3.15.3
-
-# Web App
-streamlit>=1.25.0
-
-# Environment variables
-python-dotenv>=1.0.0
-
-# Evaluation & Debugging
-difflib  # Standard lib, but listed for awareness
-requests>=2.31.0
-
-# Development
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
-
-# Visualization (optional)
-matplotlib>=3.7.0
-plotly>=5.15.0
-networkx>=3.1
+beeai-framework==0.1.1
+pydantic==2.10.6
+langchain-community==0.3.18
+ipykernel
+fastapi==0.115.8
+Flask==3.1.0
